@@ -18,7 +18,8 @@ LazyData: true
 RoxygenNote: 7.1.1
 Imports: data.table, dplyr, haven, Matrix, network
 Suggests: testthat
+NeedsCompilation: no
+Packaged: 2021-07-09 18:27:38 UTC; jlight
 Author: Light John [aut, cre],
   Doogan Nate [aut]
 Maintainer: Light John <jlight@ori.org>
-Built: R 4.0.3; ; 2021-07-07 16:48:43 UTC; windows
