@@ -24,7 +24,7 @@ install.packages('sna')
 
 4. Install RHNetTools
 ```R
-devtools::install_git( repos = "https://github.com/Sfalavi/RHNetTools")
+devtools::install_git( url = "https://github.com/Sfalavi/RHNetTools")
 ```
 
 5. Now you are set to go!
