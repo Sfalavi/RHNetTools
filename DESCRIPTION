@@ -1,0 +1,24 @@
+Package: RHNetTools
+Type: Package
+Title: Data Management Tools for RH-Systems Project
+Version: 2.1.3
+Authors@R: c(person("Light", "John", email = "jlight@ori.org",
+    role = c("aut","cre")),
+             person("Doogan", "Nate", email = "doogan.1@osu.edu",
+    role = c("aut"))
+            )
+Description: This package includes functions to import SPSS-format network
+    and survey data files (collected in REDCap and exported) into R,
+    to reformat them into analytically useful data objects, and to
+    check them for anomolies and correct these anomolies. Other data
+    management functions may be included as well.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Imports: data.table, dplyr, haven, Matrix, network
+Suggests: testthat
+Author: Light John [aut, cre],
+  Doogan Nate [aut]
+Maintainer: Light John <jlight@ori.org>
+Built: R 4.0.3; ; 2021-07-07 16:48:43 UTC; windows

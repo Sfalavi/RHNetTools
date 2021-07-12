@@ -1,0 +1,109 @@
+CompLast                Returns a list of M,matrices with the same
+                        dimensions as the input 'n'. For all row/col
+                        indices that are identified in 'x' as missing
+                        for a given time point, the entire row/col
+                        matching the index is set to the last known
+                        value.
+CompMod                 Returns a list of M,matrices with the same
+                        dimensions as the input 'n' except with entire
+                        rows set to NA for those rows with names
+                        matching the names of rows in the input 'x',
+                        which identifies time points when an actor was
+                        missing (NA) from the network data.
+DeltaNet                Given a list of networks representing time
+                        ordered observations of a network, calculate
+                        aggregate change statistics from one
+                        observation to the next.
+QOLMixing               RSiena goodness-of-fit statistic function for a
+                        3x3 mixing matrix of QOL Few details are
+                        supplied because this function is not intended
+                        to be used directly. Moreover, this is a
+                        specialized function for a specific project and
+                        a specific covariate.
+TriadCensus             RSiena goodness-of-fit statistic function for
+                        the 16-dimensional triad census. Few details
+                        are supplied because this function is not
+                        intended to be used directly.
+addStrZeros.1           Insert structural zeros to prevent ties between
+                        houses when two nodes have never lived in the
+                        same house at the same time.
+addStrZeros.2           Insert structural zeros to prevent ties between
+                        houses.
+assignRlpName           Converts a relationship "short name" string
+                        (e.g. FR, LO, etc. ) to a full (and more
+                        descriptive) string (e.g. friend, loan, etc. )
+btwCent                 Calculate avg betweenness centrality (Freeman)
+                        for a network
+checkForDuplicateEdges
+                        Checks long-format data (output from
+                        'makeLongNet') for duplicate edges
+checkForHousesOf1       Check for houses with just 1 network member
+checkForNoAlters        Check individuals who were only egos in a house
+                        (never alters).
+checkForSelfSelection   Checks long-format data (from 'makeLongNet')
+                        for self-choices (loops)
+checkInMultipleHouses   Check possible multiple house membership within
+                        1 wave.
+datToSiena              Generate a "siena" data object from a set of
+                        properly formed data frames ("cx" and "vx") and
+                        a list of adjacency matrices ordered by wave.
+errChecks               Internal function to check common errors for
+                        these functions
+fixHouse                Remove selected network connections in
+                        particular houses
+getNameAsString         Returns a character string of the input
+                        variable's name
+getNet4OneRlp           Returns an edgelist data.table for just 1 type
+                        of relationship
+makeAdjMatrix           Makes an adjacency matrix from an edge list,
+                        with SID-labeled rows/cols
+makeCCVec               Returns a list of vectors representing RSiena
+                        composition change.
+makeCountByHouseByWave
+                        Make table showing number of residents x house
+                        x wave
+makeListOfNetsByHouse   Makes a list of house-specific networks, for a
+                        single wave only.
+makeListOfSIDsByHouse   Returns a list of labeled house elements, each
+                        containing a vector of the SIDs in that house
+                        for the wave specified.
+makeLongNet             Create long-format tibble from DT converted
+                        from SPSS file
+makeNetworkList         Creates a w length list of 'Matrix' class
+                        networks, plus (if requested) the sidHID
+                        dataframe as the w+1st element.
+makeNetworkSet          Make an 'Analysis Set' list of 'network' or
+                        matrix -class networks.
+makeRegionVar           Recodes a vector of House IDs into region IDs.
+makeSIDHIDLookups       Make a w-length list of SID-HID lookup tables
+                        from a w-length list of edge-format tibbles
+                        (each of which, e.g., created by 'makeLongNet')
+makeSIDInAnyWave        Creates a tibble of SIDs x houses in each wave
+makeSurveyedRateTblByHouseByWave
+                        Make table showing rates of participation
+                        (participants / eligible) x house & wave
+multiGroup              Given a list of ID vectors and other arguments
+                        accepted by datToSiena(), this function returns
+                        a sienaGroup object with groups defined by the
+                        list of ID vectors supplied as the first
+                        argument.
+nIsolates               output count of # of isolates in a network
+netAPL                  Calculate average path (geodesic) length for a
+                        network
+netDeg                  Calculate average in + out ("Freeman") degrees
+                        across a whole network
+netDiam                 Find the longest shortest path between any 2
+                        nodes in a network
+netVtxAttr              Creates a 'network' node attribute
+recodeRlpVar            Recodes a vector representing a relationship
+                        variable to 0-1
+replaceNaNWithNA        Substitutes NA for NaN in a data.table
+runConChecks            Runs consistency checks on network data
+s0Fill                  Finds SIDs of anyone in 2 or more different
+                        houses
+s0Fill.plusData         Return a function with data used to zero-fill a
+                        single-wave network
+selectHouses            Select or remove a specified set of houses from
+                        a network
+sid2rid                 Transforms vector of SIDs into vector of Row
+                        IDs

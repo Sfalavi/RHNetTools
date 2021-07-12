@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Creates a 'network' node attribute</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for netVtxAttr {RHNetTools}"><tr><td>netVtxAttr {RHNetTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Creates a 'network' node attribute</h2>
+
+<h3>Description</h3>
+
+<p>Creates a 'network' node attribute
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+netVtxAttr(pAttrMasterDF, pSIDVec)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pAttrMasterDF</code></td>
+<td>
+<p>A two-column data frame or tbl_df with SID and the
+values of some variable 'x' for (at least) all the SIDs in the desired
+set, for which there are data (if no data, attribute will be NA). 'x'
+can be any name you like.</p>
+</td></tr>
+<tr valign="top"><td><code>pSIDVec</code></td>
+<td>
+<p>A vector of SIDs exactly matching the nodes in the desired
+set for the network of interest. This will be the length of the vertex
+set (#rows in the returned DF or tbl_df), i.e. '&lt;networkObj&gt;$oel'.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A n x 2 data frame or tbl_df (whichever was passed in), where n
+is the number of nodes (vertices) to be assigned the value of variable x,
+col 1 is SID, and col 2 is x.
+</p>
+
+
+<h3>Note</h3>
+
+<p>The calling script should check that the number of rows n is equal to
+'&lt;networkObj&gt;$oel, and that the same ordering is used in both. <br />
+Note also that this is a pretty simple function; it really only selects a
+subset of some variable and makes sure they're ordered by SID.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>RHNetTools</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
+</body></html>

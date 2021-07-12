@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Select or remove a specified set of houses from a network</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for selectHouses {RHNetTools}"><tr><td>selectHouses {RHNetTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Select or remove a specified set of houses from a network</h2>
+
+<h3>Description</h3>
+
+<p>Select or remove a specified set of houses from a network
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+selectHouses(rlpNet, pHIDVec)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>rlpNet</code></td>
+<td>
+<p>(tbl_df) in in the form created by 'makeLongNet', and
+meant to represent a network edge list. Will actually accept any such
+input containing at least the variables SID, HID, WID, and AltID.
+May be single- or multi-wave</p>
+</td></tr>
+<tr valign="top"><td><code>pHIDVec</code></td>
+<td>
+<p>(numerical vecto) Vector of House ID numbers. They
+must be either all positive numbers, or all negative, or an error is
+thrown. If all positive, these house IDs are to be included. If all
+negative, these house IDs are to be excluded</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A tbl_df in the same format as the input, including only the
+user-specified set of houses from pHIDVec
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>RHNetTools</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Returns a list of vectors representing RSiena composition...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for makeCCVec {RHNetTools}"><tr><td>makeCCVec {RHNetTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Returns a list of vectors representing RSiena composition change.</h2>
+
+<h3>Description</h3>
+
+<p>The output of this function may be input directly to the RSiena function
+'sienaCompositionChange'.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+makeCCVec(pElig)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pElig</code></td>
+<td>
+<p>An n x 1+w tbl_df, with 1 row for every SID to be included
+in a particular analysis (an &quot;Analysis Set&quot;), and 1 col for
+each wave w, containing a number &gt;0 if the SID is in the analysis for
+that wave, and NA if not if not (col 1 is SID). In this project, this
+dataframe (or data.table) is called 'SIDInAnyWave', or a similar
+construction, with SID as the first column, and the house id the SID
+belonged to in each of the w waves in the analysis, named 'HID1',
+'HID2', ....'HIDw'.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A list of n elements, one for each row of the input DF. Each
+element is a vector of pairs of arrival and departure times from
+the network, as explained in the RSiena manual under 'method of
+changing composition'.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+# Returns a list of composition change vectors for the SIDs
+# in waves 1, 3, and 4, and schools 3, 4, 5, 6, and 30.
+ccDF &lt;- makeCCVec(SIDInAnyWave)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>RHNetTools</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
+</body></html>

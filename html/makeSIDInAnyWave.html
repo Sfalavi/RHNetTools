@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Creates a tibble of SIDs x houses in each wave</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for makeSIDInAnyWave {RHNetTools}"><tr><td>makeSIDInAnyWave {RHNetTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Creates a tibble of SIDs x houses in each wave</h2>
+
+<h3>Description</h3>
+
+<p>Creates a tibble of SIDs x houses in each wave
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+makeSIDInAnyWave(pInLst)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pInLst</code></td>
+<td>
+<p>(list) A list of tbls, one for each wave of interest,
+with columns SID and HID, e.g. as created by 'makeSIDHIDLookups'.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>If the individual was not a resident anywhere (i.e. not in the
+study), the value for that SID and wave is NA. If the individual switched
+houses while surveys were in progress, it is possible he/she could have
+had a longNet row from two houses; however, he/she could only have
+surveyed in one, and this is the one that should be assigned to that SID.
+If such a switch occurred but the individual did not survey in either
+house (we've never seen this but it's possible), then if that SID is to
+be included for some reason (normally one would not),
+then an ad hoc decision must be made in the data prep script.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Returns a single tbl (tbl_df) with one row for any of the SIDs
+found in pInLst, and 1 column for each wave, containing the HID the
+the individual was considered to have been living in for that wave.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>RHNetTools</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
+</body></html>

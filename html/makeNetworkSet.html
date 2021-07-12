@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Make an 'Analysis Set' list of 'network' or matrix -class...</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for makeNetworkSet {RHNetTools}"><tr><td>makeNetworkSet {RHNetTools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Make an 'Analysis Set' list of 'network' or matrix -class networks.</h2>
+
+<h3>Description</h3>
+
+<p>Takes 'long' format network data (from 'makeLongNet') in a
+class 'tibble' (tbl_df) form, and creates a #wave-length list of
+class = matrix (or class =network) networks for the requested
+relationship type and set of requested waves.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+makeNetworkSet(
+  pInTB,
+  pWavVec = c(1),
+  pTypNet = "FR",
+  pTypOut = "MX",
+  pTHold = 0,
+  includeAltID = FALSE,
+  not_active_code = 10
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>pInTB</code></td>
+<td>
+<p>(tbl_df) A long-format tibble, i.e. as created by
+'makeLongNet'. This table will usually include several waves, but it
+does not have to. <br />
+IMPORTANT NOTE: It is assumed that all of the SIDs (and, if
+includeAltID=TRUE, AltIDs) in this tbl are exactly the ones you
+want in your final data analysis set; thus, any pruning of these
+IDs must have occurred prior to running this function.</p>
+</td></tr>
+<tr valign="top"><td><code>pWavVec</code></td>
+<td>
+<p>(numerical vector, default c(1)) A vector of waves to pull
+from pInTB.</p>
+</td></tr>
+<tr valign="top"><td><code>pTypNet</code></td>
+<td>
+<p>(character string, default = &quot;FR&quot;) Specifies type of network
+relationship to use to construct the network. Possibilities are: <br />
+FR: friend (1=close friend,2=friend, 3=acquaintence,
+4=stranger,5=adversary) <br />
+LO: loan $ (1=$0, 2=$10, 3=$50, 4=$100, 5=$500) <br />
+HE: help   (1=very likely, 2=likely, 3=maybe, 4=prob not, 5=no) <br />
+CO: conversation (1=daily, 2=almost daily, 3=every few days, 4=weekly,
+5=almost never) <br />
+AD: advice from (1=very often, 2=quite often, 3=regularly, 4=rarely,
+5=never) <br />
+ST: strength (1=very strong, 2=strong, 3=weak, 4=none, 5=negative)</p>
+</td></tr>
+<tr valign="top"><td><code>pTypOut</code></td>
+<td>
+<p>(character string, default &quot;MX&quot;) MX for matrix output, or
+&quot;NT&quot; for 'network' class output.</p>
+</td></tr>
+<tr valign="top"><td><code>pTHold</code></td>
+<td>
+<p>(number, default 0) Threshold for recoding a relationship
+value (selected with pTypNet) to 0 or 1. If 1-5, it means 'this value or
+higher = 1; else 0'. If &lt;0, the meaning is
+'this value or lower = 1'. Default is 0, meaning 'do not recode;
+just return the originally-coded rating'.</p>
+</td></tr>
+<tr valign="top"><td><code>includeAltID</code></td>
+<td>
+<p>(logical; default=FALSE). If TRUE, any individuals
+who appear in pInTB as AltIDs only (chosen by some SID) are
+to be included in the analysis even if they never appear as
+choosers (SIDs). According to project conventions, this implies
+that such individuals would not have participated in the survey for
+the wave in question, and thus would have only incoming relationship
+ratings. (Normally such data is not included, but it might be, for
+example if one wanted to impute outgoing ties for such individuals,
+etc.)</p>
+</td></tr>
+<tr valign="top"><td><code>not_active_code</code></td>
+<td>
+<p>Default=10. This is the code put into the adjacency
+matrix if the individual represented by that row &amp; column did not
+contribute network data during wave 'pWave'</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A length(pWavVec+1)-length list of wave-specific matrices, in
+standard base R 'matrix' format (adjacency matrix). The
+w+1st element is a tibble with a row for every SID in the analysis,
+plus a column for each wave with the house (HID) the person was
+assigned to that wave. This value is NA if and only if the person
+did not participate in that wave.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>RHNetTools</em> version 2.1.3 <a href="00Index.html">Index</a>]</div>
+</body></html>
